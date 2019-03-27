@@ -1,0 +1,47 @@
+.Student {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 25vw;
+  height: 12.5vw;
+  border: 1px solid black;
+  background-color: #000040;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.Student .photo,
+.Student .description {
+  width: 50%;
+}
+
+.Student img {
+  width: 12.5vw;
+  vertical-align: middle;
+}
+
+.Student .name {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-transform: capitalize;
+  text-align: center;
+  font-size: 25px;
+  color: white;
+}
+
+.Student .name span {
+  letter-spacing: .5px;
+  margin: 4px 0;
+}
+
+.Student .name .firstname,
+.Student .name .lastname {
+  font-weight: bold;
+}
+
+.Student .name .job {
+  font-size: 20px;
+  color: #467f9a;
+}
