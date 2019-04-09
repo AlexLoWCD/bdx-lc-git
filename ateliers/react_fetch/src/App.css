@@ -1,2 +1,89 @@
 .App {
+  min-height: 100vh;
+}
+
+.Homepage {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 56px);
+}
+
+.Homepage h1 {
+  padding: 20px 50px;
+  border-radius: 10px;
+  background-color: #621a1a;
+  color: white;
+  box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.4), inset 2px 2px 6px rgba(255, 255, 255, 0.7);
+  letter-spacing: 1px;
+  z-index: 2;
+  user-select: none;
+}
+
+.Homepage::after,
+.ListGames::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("https://cdn.lelynx.fr/wp-content/uploads/2018/06/jeux-video-OMS3.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: 1;
+  opacity: .7;
+}
+
+.ListGames {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  min-height: calc(100vh - 56px);
+  padding: 50px 0;
+  list-style: none;
+}
+
+.ListGames li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 200px;
+  margin: 10px 20px;
+  padding: 8px;
+  border-radius: 2px;
+  background-color: white;
+  box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  transition: all ease .4s;
+  z-index: 2;
+}
+
+.ListGames li:hover {
+  transform: scale(1.1);
+}
+
+.ListGames li img {
+  border: 5px solid black;
+}
+
+.ListGames li a {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 5px;
+  background-color: white;
+  text-align: center;
+  color: black;
+  text-decoration: none;
+  font-family: 'Shadows Into Light', cursive;
+  font-size: 24px;
+}
+
+.ListGames li:hover a {
+  font-weight: bold;
 }
