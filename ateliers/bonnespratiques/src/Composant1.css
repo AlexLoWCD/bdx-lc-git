@@ -1,0 +1,19 @@
+.Composant1 {
+  width: 300px;
+  margin: 50px;
+  height: 150px;
+  border: 1px solid black;
+}
+
+.Composant1 .listItems {
+  display: flex;
+}
+
+.Composant1 .menu p {
+  color: green;
+  font-family: 'Dokdo';
+}
+
+.Composant1 li::after {
+
+}

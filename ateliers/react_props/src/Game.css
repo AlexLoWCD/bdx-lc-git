@@ -1,0 +1,11 @@
+.Game {
+  display: flex;
+  align-items: center;
+  width: 630px;
+  height: 70px;
+  border: 1px solid black;
+}
+
+.Game div:nth-child(2) {
+  flex-grow: 1;
+}
