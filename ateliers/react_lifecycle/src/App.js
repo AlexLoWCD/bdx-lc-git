@@ -1,37 +1,26 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { asyncFetchMovies } from './actions';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      movies: [],
-      loading: false,
-    }
-  }
-
   componentDidMount() {
-    this.setState({
-      loading: true,
-    });
-    fetch('http://campus-bordeaux.ovh:3001/api/quests/movies/')
-    .then(res => res.json())
-    .then((movies) => {
-      this.setState({ 
-        movies,
-        loading: false,
-      });
-    });
+    this.props.asyncFetchMovies();
   }
 
   render() {
-    const movies = this.state.movies;
-    const loading = this.state.loading;
-    return ( 
-      <div className="App" style={{textAlign: 'center'}}>
+    const { movies, loading, error } = this.props;
+    return (
+      <div className="App" style={{ textAlign: 'center' }}>
         {
           (loading)
-          ? <div>Chargement en cours...</div>
-          : ''
+            ? <div>Chargement en cours...</div>
+            : ''
+        }
+        {
+          (error !== '')
+            ? <div>{error}</div>
+            : ''
         }
         {
           movies.map(movie => (
@@ -43,8 +32,16 @@ class App extends Component {
           ))
         }
       </div>
-     );
+    );
   }
 }
- 
-export default App;
+
+const mstp = state => ({
+  loading: state.movies.loading,
+  movies: state.movies.list,
+  error: state.movies.error,
+});
+
+const mdtp = dispatch => bindActionCreators({ asyncFetchMovies }, dispatch);
+
+export default connect(mstp, mdtp)(App);
